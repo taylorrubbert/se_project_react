@@ -1,0 +1,28 @@
+//'add clothes' button that opens modalwithform
+import "./Header.css";
+import logo from "../../images/logo.svg";
+import avatar from "../../images/avatar.png";
+function Header() {
+  return (
+    <header className="header">
+      <img className="header__logo" src={logo} alt="logo" />
+      <p className="header__current-date">
+        {new Date().toLocaleString("default", {
+          month: "long",
+          day: "numeric",
+        })}
+      </p>
+      <button className="header__add-clothes-btn">+Add clothes</button>
+      <div className="header__user-container">
+        <p className="header__user-name">Terrence Tegegne</p>
+        <img
+          src={avatar}
+          alt="Terrence Tegegne"
+          className="header__user-avatar"
+        />
+      </div>
+    </header>
+  );
+}
+
+export default Header;
