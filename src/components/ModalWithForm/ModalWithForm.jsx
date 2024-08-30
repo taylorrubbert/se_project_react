@@ -10,3 +10,34 @@
 //To correctly substitute name into the CSS class of the container, use the following syntax: className={`modal modal_type_${name}`}
 
 //One more prop is onClose, which should be called when the user clicks on the close button, clicks outside of the modal content, or presses the Escape button on the keyboard.
+import "./ModalWithForm.css";
+function ModalWithForm({
+  children,
+  buttonText,
+  titleText,
+  activeModal,
+  handleModalClose,
+}) {
+  return (
+    <div className={`modal ${activeModal === "add-garment" && "modal_opened"}`}>
+      <div className="modal__content">
+        <h2 className="modal__title">{titleText}</h2>
+        <button
+          className="modal__close-btn"
+          type="button"
+          onClick={handleModalClose}
+        >
+          CLOSE
+        </button>
+        <form className="modal__form">
+          {children}
+          <button className="modal__submit-btn" type="submit">
+            {buttonText}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default ModalWithForm;
