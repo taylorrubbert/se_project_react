@@ -1,0 +1,33 @@
+/*.cards {
+}*/
+
+.cards__list {
+  display: flex;
+  flex-direction: row;
+  width: 1360px;
+  height: 387px;
+  padding: 0;
+  margin-left: 0px;
+  margin-right: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card__image {
+  height: 326px;
+  width: 323px;
+  border-radius: 10%;
+}
+
+.card__name {
+  margin: 0;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  line-height: 20px;
+  padding: 2px 12px;
+  margin-top: 15px;
+  margin-left: 116px;
+}
