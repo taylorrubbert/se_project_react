@@ -5,10 +5,11 @@
 //weather card receives data from its parent (props chain example: App → Main → WeatherCard)
 import "./weathercard.css";
 import sunny from "../../images/sunny.png";
+import { filterWeatherData } from "../../utils/weatherAPI";
 function WeatherCard() {
   return (
     <section className="weather-card">
-      <p className="weather-card__temp"></p>
+      <p className="weather-card__temp">{filterWeatherData.temp} &deg; F</p>
       <img className="weather-card__image" src={sunny} alt="sunny" />
     </section>
   );
