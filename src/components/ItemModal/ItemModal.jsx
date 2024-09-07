@@ -2,7 +2,7 @@
 
 //onClose (works the same way as the ModalWithForm)
 //The item card data that you need to render
-import "./ItemModal.css";
+import "./itemmodal.css";
 function ItemModal({ activeModal, onClose, card }) {
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
