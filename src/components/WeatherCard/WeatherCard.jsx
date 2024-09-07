@@ -3,7 +3,7 @@
 // weather data not stored in Main, need to pass it down from App component
 
 //weather card receives data from its parent (props chain example: App → Main → WeatherCard)
-import "./weathercard.css";
+import "./WeatherCard.css";
 import { weatherOptions, defaultWeatherOptions } from "../../utils/constants";
 function WeatherCard({ weatherData }) {
   const filteredOptions = weatherOptions.filter((option) => {

@@ -1,5 +1,5 @@
 //renders meta info about the app - copyright and the production year, basic text
-import "./footer.css";
+import "./Footer.css";
 
 function Footer() {
   return (

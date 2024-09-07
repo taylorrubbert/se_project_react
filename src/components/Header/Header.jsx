@@ -1,5 +1,5 @@
 //'add clothes' button that opens modalwithform
-import "./header.css";
+import "./Header.css";
 import logo from "../../images/logo.svg";
 import avatar from "../../images/avatar.png";
 function Header({ handleAddClick, weatherData }) {
