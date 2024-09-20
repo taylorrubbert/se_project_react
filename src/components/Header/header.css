@@ -1,7 +1,21 @@
 .header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 0 28px;
+}
+
+.header__wrapper {
   display: flex;
   align-items: center;
-  padding: 32px 0 28px;
+}
+
+.wrapper__date-and-location {
+  gap: 10px;
+}
+
+.wrapper__profile-and-buttons {
+  gap: 10px;
 }
 
 .header__logo {
@@ -12,7 +26,6 @@
   margin: 0;
 }
 .header__add-clothes-btn {
-  margin-left: auto;
   margin-right: 20px;
   border: none;
   font-weight: 700;
