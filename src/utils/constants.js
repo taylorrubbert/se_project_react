@@ -70,7 +70,7 @@ export const defaultWeatherOptions = {
     url: new URL("../images/night/default.png", import.meta.url).href,
   },
 };
-export const defaultClothingItems = [
+export const clothingItems = [
   {
     _id: 0,
     name: "Cap",

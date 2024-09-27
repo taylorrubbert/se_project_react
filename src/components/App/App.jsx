@@ -1,17 +1,18 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import { coordinates, APIkey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import ItemModal from "../ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../../utils/weatherAPI";
 import Footer from "../Footer/Footer";
 import { CurrentTempUnitContext } from "../Contexts/CurrentTempUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
+import { getItems, addItem, deleteItem } from "../../utils/api.js";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -25,7 +26,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
 
   const handleAddClick = () => {
-    setActiveModal("create");
+    setActiveModal("add-garment");
   };
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -36,8 +37,25 @@ function App() {
     setActiveModal("");
   };
 
-  const onAddItem = (values) => {
-    console.log(values);
+  const handleAddItem = (item) => {
+    return addItem(item)
+      .then((newItem) => {
+        setClothingItems([newItem, ...clothingItems]);
+        handleModalClose();
+      })
+      .catch((err) => console.log(err));
+  };
+  const handleDeleteCard = (card) => {
+    deleteItem(card._id)
+      .then(() => {
+        setClothingItems((cards) => cards.filter((c) => c._id !== card._id));
+        setSelectedCard({});
+        handleModalClose();
+      })
+      .catch(console.error);
+  };
+  const handleDeleteCardClick = () => {
+    setActiveModal("delete-confirmation");
   };
 
   const handleToggleSwitchChange = () => {
@@ -56,23 +74,67 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    getItems()
+      .then((items) => {
+        setClothingItems(items);
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    function handleCloseMethods(evt) {
+      if (evt.key === "Escape" || evt.key === "esc" || evt.keyCode === 27) {
+        handleModalClose();
+      }
+
+      if (evt.type === "click" && evt.target.classList.contains("modal")) {
+        handleModalClose();
+      }
+    }
+
+    if (activeModal !== "") {
+      document.addEventListener("keydown", handleCloseMethods);
+      document.addEventListener("click", handleCloseMethods);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleCloseMethods);
+      document.removeEventListener("click", handleCloseMethods);
+    };
+  }, [activeModal]);
+
   return (
     <div className="page">
       <CurrentTempUnitContext.Provider
         value={{ currentTempUnit, handleToggleSwitchChange }}
       >
         <div className="page__content">
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Header
+            handleAddClick={handleAddClick}
+            weatherData={weatherData}
+            clothingItems={clothingItems}
+          />
           <Routes>
             <Route
               path="/"
               element={
-                <Main weatherData={weatherData} onCardClick={handleCardClick} />
+                <Main
+                  weatherData={weatherData}
+                  onCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                />
               }
             />
             <Route
               path="/profile"
-              element={<Profile onCardClick={handleCardClick} />}
+              element={
+                <Profile
+                  onCardClick={handleCardClick}
+                  clothingItems={clothingItems}
+                  handleAddClick={handleAddClick}
+                />
+              }
             />
           </Routes>
           <Footer />
@@ -80,12 +142,19 @@ function App() {
         <AddItemModal
           handleModalClose={handleModalClose}
           isOpen={activeModal === "add-garment"}
-          onAddItem={onAddItem}
+          handleAddItem={handleAddItem}
         />
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
           onClose={handleModalClose}
+          confirmDeleteModal={handleDeleteCardClick}
+        />
+        <DeleteModal
+          activeModal={activeModal}
+          onClose={handleModalClose}
+          handleDeleteCard={handleDeleteCard}
+          selectedCard={selectedCard}
         />
       </CurrentTempUnitContext.Provider>
     </div>

@@ -1,25 +1,30 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-const AddItemModal = ({ handleModalClose, onAddItem, isOpen }) => {
+const AddItemModal = ({ handleModalClose, handleAddItem, isOpen }) => {
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
 
-  const [link, setUrl] = useState("");
+  const [imageUrl, setUrl] = useState("");
   const handleUrlChange = (e) => {
     setUrl(e.target.value);
   };
 
+  /*const [weather, setWeather] = useState("");
+  const handleWeatherChange = (e) => {
+    setWeather(e.target.value);
+  };*/
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, link });
+    handleAddItem({ name, imageUrl });
   };
   return (
     <ModalWithForm
       buttonText="Add garment"
       titleText="New garment"
-      isOpen={isOpen === "add-garment"}
+      isOpen={isOpen}
       onClose={handleModalClose}
       onSubmit={handleSubmit}
     >
@@ -36,16 +41,16 @@ const AddItemModal = ({ handleModalClose, onAddItem, isOpen }) => {
           onChange={handleNameChange}
         />
       </label>
-      <label htmlFor="imageURL" className="modal__label">
+      <label htmlFor="imageUrl" className="modal__label">
         Image{" "}
         <input
           type="url"
           className="modal__input"
-          id="imageURL"
+          id="imageUrl"
           placeholder="Image URL"
           minLength="1"
           maxLength="30"
-          value={link}
+          value={imageUrl}
           onChange={handleUrlChange}
         />
       </label>

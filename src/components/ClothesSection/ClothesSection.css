@@ -1,0 +1,15 @@
+.clothes-section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: hidden;
+  gap: 24px;
+}
+
+.clothes-section__items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+  gap: 24px;
+}
