@@ -8,18 +8,22 @@ function ItemModal({ activeModal, onClose, card, confirmDeleteModal }) {
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_image">
         <button
-          className="modal__close-btn"
+          className="modal__image_close-btn"
           type="button"
           onClick={onClose}
         ></button>
         <img className="modal__image" src={card.imageUrl} alt={card.name} />
         <div className="modal__footer">
-          <h2 className="modal__caption">{card.name}</h2>
-          <p className="modal__weather">Weather: {card.weather}</p>
+          <div className="modal__caption-weather-container">
+            <h2 className="modal__caption">{card.name}</h2>
+            <p className="modal__weather">Weather: {card.weather}</p>
+          </div>
+          <div className="modal__delete-btn-container">
+            <button className="modal__delete-btn" onClick={confirmDeleteModal}>
+              Delete Item
+            </button>
+          </div>
         </div>
-        <button className="modal__delete-btn" onClick={confirmDeleteModal}>
-          Delete Item
-        </button>
       </div>
     </div>
   );

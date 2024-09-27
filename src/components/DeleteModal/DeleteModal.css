@@ -1,0 +1,41 @@
+.modal__content_type_delete {
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  margin: 0 auto;
+  max-width: 670px;
+}
+
+.modal__delete_text {
+  text-align: center;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  padding-left: 152px;
+  padding-right: 152px;
+  margin: 0;
+}
+
+.modal__delete-btns {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.modal__confirm-delete-btn {
+  border-style: none;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(255, 77, 0, 1);
+  margin-top: 40px;
+}
+
+.modal__cancel-btn {
+  border-style: none;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+  margin-top: 24px;
+  margin-bottom: 60px;
+}

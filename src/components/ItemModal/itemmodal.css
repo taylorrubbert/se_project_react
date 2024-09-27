@@ -1,11 +1,29 @@
 .modal__content_type_image {
   background-color: #ffffff;
   padding: 0;
+  max-width: 498px;
 }
 
 .modal__image {
   width: 100%;
   border-radius: 2% 2% 0 0;
+}
+
+.modal__image_close-btn {
+  background-image: url("../../images/itemmodalclose.png");
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  height: 16px;
+  width: 16px;
+  border-style: none;
+  cursor: pointer;
+}
+
+.modal__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .modal__caption {
@@ -20,4 +38,16 @@
   margin-bottom: 32px;
   margin-top: 12px;
   font-size: 20px;
+}
+
+.modal__delete-btn {
+  border-style: none;
+  background-color: rgba(255, 255, 255, 1);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: rgba(255, 77, 0, 1);
+  margin-top: 20px;
+  margin-right: 32px;
+  cursor: pointer;
 }
