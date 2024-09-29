@@ -5,7 +5,10 @@
 //weather card receives data from its parent (props chain example: App → Main → WeatherCard)
 import "./weathercard.css";
 import { weatherOptions, defaultWeatherOptions } from "../../utils/constants";
+import currentTempUnitContext from "../../Contexts/CurrentTempUnitContext";
+import { useContext } from "react";
 function WeatherCard({ weatherData }) {
+  const { currentTempUnit } = useContext(currentTempUnitContext);
   const filteredOptions = weatherOptions.filter((option) => {
     return (
       option.day === weatherData.isDay &&
@@ -22,7 +25,9 @@ function WeatherCard({ weatherData }) {
 
   return (
     <section className="weather-card">
-      <p className="weather-card__temp">{weatherData.temp.F}&deg;F</p>
+      <p className="weather-card__temp">
+        {weatherData.temp[currentTempUnit]}&deg; {currentTempUnit}
+      </p>
       <img
         className="weather-card__image"
         src={weatherOption?.url}

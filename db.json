@@ -27,14 +27,14 @@
     {
       "_id": 11,
       "name": "Shorts",
-      "weather": "Hot",
+      "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Shorts.png?etag=d728c496643f610de8d8fea92dd915ba"
     },
     {
-      "name": "",
-      "weather": "",
-      "imageUrl": "",
-      "_id": 12
+      "name": "shirt",
+      "weather": "hot",
+      "imageUrl": "https://st.depositphotos.com/1017986/2626/i/450/depositphotos_26263587-stock-photo-man-in-blank-t-shirt.jpg",
+      "_id": 13
     }
   ]
 }

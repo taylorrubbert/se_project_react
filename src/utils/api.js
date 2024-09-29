@@ -4,16 +4,11 @@ export const handleServerResponse = (res) => {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 };
 
-const getItems = () => {
-  return fetch(`${baseUrl}/items`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }).then(handleServerResponse);
-};
+async function getItems() {
+  return fetch(`${baseUrl}/items`).then(handleServerResponse);
+}
 
-const addItem = ({ name, weather, imageUrl }) => {
+async function addItem({ name, weather, imageUrl }) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -25,15 +20,15 @@ const addItem = ({ name, weather, imageUrl }) => {
       imageUrl,
     }),
   }).then(handleServerResponse);
-};
+}
 
-const deleteItem = (id) => {
+async function deleteItem(id) {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
   }).then(handleServerResponse);
-};
+}
 
 export { getItems, addItem, deleteItem };
