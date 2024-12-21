@@ -1,18 +1,31 @@
-//clothing item cards, filtered based on current weather
-// wrap ItemCard componenet into unordered list and use filter() and map() methods
-
-//ItemCard is a component that renders the image and title for an item of clothing.
-//Moreover, the image is an interactive element, meaning that if the user clicks on it, the item modal will open.
-//Note that the item card itself doesn’t know about the modal state. Therefore, you need to pass it down from App to Main.
-//In other words, when the user clicks on the image, you need to call the state change function handleCardClick() that ItemCard receives as a prop
+import { useContext } from "react";
+import CurrentUserContext from "../../Contexts/CurrentUserContext";
 import "./ItemCard.css";
-function ItemCard({ item, onCardClick }) {
+function ItemCard({ item, onCardClick, handleCardLike }) {
+  const currentUser = useContext(CurrentUserContext);
+  const isLiked = item.likes?.some((id) => id === currentUser?._id);
+
   const handleCardClick = () => {
     onCardClick(item);
   };
+  const handleLike = () => {
+    handleCardLike({ id: item._id, isLiked });
+  };
+
+  const itemLikeButtonClassName = `item__heart ${
+    isLiked ? "item__heart_liked" : ""
+  }`;
+
   return (
     <div>
       <h2 className="card__name">{item.name}</h2>
+      {currentUser?._id && (
+        <button
+          className={itemLikeButtonClassName}
+          type="button"
+          onClick={handleLike}
+        />
+      )}
       <img
         onClick={handleCardClick}
         className="card__image"
