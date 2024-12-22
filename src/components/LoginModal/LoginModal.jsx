@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "./LoginModal.css";
 
 const LoginModal = ({
-  closeActiveModal,
+  handleModalClose,
   isOpen,
   onLogIn,
   handleRegisterModal,
@@ -39,18 +39,18 @@ const LoginModal = ({
       title="Log In"
       buttonText="Log In"
       isOpen={isOpen}
-      onClose={closeActiveModal}
+      onClose={handleModalClose}
       onSubmit={handleSubmit}
-      buttonClass={`modal__submit ${
-        isButtonActive ? "modal__submit_complete" : ""
+      buttonClass={`login-modal__submit ${
+        isButtonActive ? "login-modal__submit_complete" : ""
       }`}
       error={error}
       name="login"
     >
       <button
-        className="modal__close"
+        className="modal__close-btn"
         type="button"
-        onClick={closeActiveModal}
+        onClick={handleModalClose}
       />
       <label htmlFor="login-email" className="modal__label">
         Email*
@@ -84,19 +84,14 @@ const LoginModal = ({
           autoComplete="current-password"
         />
       </label>
-      {error && <div className="modal__error">{error}</div>}
-      <div className="modal__buttons-wrapper">
-        <button
-          type="submit"
-          className={`${buttonClass} ${
-            isButtonActive ? "modal__submit_complete" : ""
-          }`}
-        >
+
+      <div className="modal__btns">
+        <button type="submit" className="modal__login">
           Log In
         </button>
         <button
           type="button"
-          className="modal__signup-button"
+          className="modal__signup"
           onClick={handleRegisterModal}
         >
           or Sign Up

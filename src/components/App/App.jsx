@@ -44,6 +44,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
 
+  //handlers
   const handleAddClick = () => {
     setActiveModal("add-garment");
   };

@@ -3,7 +3,7 @@ import "./RegisterModal.css";
 import { useState, useEffect } from "react";
 
 const RegisterModal = ({
-  closeModal,
+  handleModalCLose,
   openLoginModal,
   openModal,
   onRegister,
@@ -42,7 +42,7 @@ const RegisterModal = ({
     <ModalWithForm
       title="Sign up"
       openModal={openModal}
-      closeModal={closeModal}
+      handleModalCLose={handleModalCLose}
       onSubmit={handleSubmit}
       name="register"
     >
