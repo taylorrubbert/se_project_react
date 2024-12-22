@@ -52,17 +52,13 @@ function App() {
     setActiveModal("preview");
     setSelectedCard(card);
   };
-
   const handleModalClose = () => {
     setActiveModal("");
     setSelectedCard({});
   };
-
   const handleModalOpen = (modal) => setActiveModal(modal);
-
   const handleAddItem = (newItem) => {
     const token = localStorage.getItem("jwt");
-
     addItem(newItem, token)
       .then((addedItem) => {
         setClothingItems((prevItems) => [addedItem.data, ...prevItems]);
@@ -83,15 +79,12 @@ function App() {
       })
       .catch((err) => console.error(err));
   };
-
   const handleDeleteCardClick = () => {
     setActiveModal("delete-confirmation");
   };
-
   const handleCardLike = ({ id, isLiked }) => {
     const token = localStorage.getItem("jwt");
     const cardAction = isLiked ? removeCardLike : addCardLike;
-
     cardAction(id, token)
       .then((updatedCard) => {
         setClothingItems((cards) =>
@@ -100,12 +93,10 @@ function App() {
       })
       .catch(console.error);
   };
-
   const handleToggleSwitchChange = () => {
     if (currentTempUnit === "C") setCurrentTempUnit("F");
     if (currentTempUnit === "F") setCurrentTempUnit("C");
   };
-
   const handleLogin = ({ email, password }) => {
     logIn({ email, password })
       .then((data) => {
@@ -121,7 +112,6 @@ function App() {
       })
       .catch((err) => console.error("Login error:", err));
   };
-
   const handleRegister = (userData) => {
     register(userData)
       .then(() =>
@@ -129,7 +119,6 @@ function App() {
       )
       .catch(console.error);
   };
-
   const handleEditProfile = (profileData) => {
     const token = localStorage.getItem("jwt");
     editUserProfile(profileData, token)
@@ -139,7 +128,6 @@ function App() {
       })
       .catch((err) => console.error("Edit profile error:", err));
   };
-
   const handleSignout = () => {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);
@@ -147,6 +135,7 @@ function App() {
     navigate("/");
   };
 
+  //effects
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token) {
