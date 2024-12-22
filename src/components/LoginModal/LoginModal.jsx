@@ -6,6 +6,7 @@ const LoginModal = ({
   handleModalClose,
   isOpen,
   onLogIn,
+  buttonClass = "modal__login",
   handleRegisterModal,
   error = null,
 }) => {
@@ -40,8 +41,8 @@ const LoginModal = ({
       isOpen={isOpen}
       onClose={handleModalClose}
       onSubmit={handleSubmit}
-      buttonClass={`login-modal__submit ${
-        isButtonActive ? "login-modal__submit_complete" : ""
+      buttonClass={`login-modal__login ${
+        isButtonActive ? "login-modal__login_active" : ""
       }`}
       error={error}
       name="login"
@@ -86,7 +87,12 @@ const LoginModal = ({
       </label>
       {error && <div className="modal__error">{error}</div>}
       <div className="modal__btns">
-        <button type="submit" className="modal__login">
+        <button
+          type="submit"
+          className={`${buttonClass} ${
+            isButtonActive ? "modal__login_active" : ""
+          }`}
+        >
           Log In
         </button>
         <button

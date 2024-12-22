@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 const RegisterModal = ({
   handleModalCLose,
   openLoginModal,
-  openModal,
+  isOpen,
   onRegister,
-  buttonClass = "modal__submit",
+  buttonClass = "modal__register",
 }) => {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -25,13 +25,13 @@ const RegisterModal = ({
   }, [email, password, name, avatar]);
 
   useEffect(() => {
-    if (openModal) {
+    if (isOpen) {
       setName("");
       setAvatar("");
       setPassword("");
       setEmail("");
     }
-  }, [openModal]);
+  }, [isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,12 +40,17 @@ const RegisterModal = ({
 
   return (
     <ModalWithForm
-      title="Sign up"
-      openModal={openModal}
+      title="Sign Up"
+      buttonText="Sign Up"
+      isOpen={isOpen}
       handleModalCLose={handleModalCLose}
       onSubmit={handleSubmit}
+      buttonClass={`register-modal__register ${
+        isButtonActive ? "register-modal__register_active" : ""
+      }`}
       name="register"
     >
+      <label className="modal__title">Sign Up</label>
       <label htmlFor="register-email" className="modal__label">
         Email*
         <input
@@ -102,18 +107,18 @@ const RegisterModal = ({
           autoComplete="url"
         />
       </label>
-      <div className="modal__buttons-container">
+      <div className="modal__btns">
         <button
           type="submit"
           className={`${buttonClass} ${
-            isButtonActive ? "modal__submit_filled" : ""
+            isButtonActive ? "modal__register_active" : ""
           }`}
         >
           Sign Up
         </button>
         <button
           type="button"
-          className="modal__login-button"
+          className="modal__login-btn"
           onClick={openLoginModal}
         >
           or Log In

@@ -1,15 +1,24 @@
-.modal__login-button {
-  opacity: 0.5;
-}
-
-.modal__buttons-container {
-  gap: 2px;
-  opacity: 0px;
-}
-
-.modal__login-button {
+.modal__login-btn {
   opacity: 0.5;
   background: none;
   border: none;
   margin-left: 8px;
+  cursor: pointer;
+}
+.modal__register {
+  cursor: pointer;
+  height: 36px;
+  width: 124px;
+  font-size: 16px;
+  line-height: 20px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  border-style: none;
+  margin-top: 8px;
+}
+
+.modal__register_active {
+  opacity: 1;
+  background-color: black;
 }

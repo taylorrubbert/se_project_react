@@ -4,7 +4,7 @@ import CurrentUserContext from "../../Contexts/CurrentUserContext";
 import "../ModalWithForm/ModalWithForm.css";
 
 const EditProfileModal = ({
-  closeActiveModal,
+  handleModalClose,
   isOpen,
   onEditProfileSubmit,
 }) => {
@@ -71,7 +71,7 @@ const EditProfileModal = ({
         isButtonActive ? "modal__submit_active" : ""
       }`}
       isOpen={isOpen}
-      closeActiveModal={closeActiveModal}
+      handleModalClose={handleModalClose}
       onSubmit={handleSubmit}
       name={"editprofile"}
     >

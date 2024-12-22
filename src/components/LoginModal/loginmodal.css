@@ -19,6 +19,11 @@
   margin-top: 8px;
 }
 
+.modal__login_active {
+  opacity: 1;
+  background-color: black;
+}
+
 .modal__error {
   color: rgba(255, 77, 0, 1);
 }
