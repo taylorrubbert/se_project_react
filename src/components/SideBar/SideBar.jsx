@@ -20,14 +20,14 @@ function SideBar({ handleUpdateClick, handleSignout }) {
           type="button"
           onClick={handleUpdateClick}
         >
-          Update Profile
+          Change Profile Data
         </button>
         <button
           className="sidebar__button"
           type="button"
           onClick={handleSignout}
         >
-          Sign Out
+          Log Out
         </button>
       </div>
     </div>

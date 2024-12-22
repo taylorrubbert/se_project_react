@@ -7,11 +7,11 @@ function Profile({
   handleAddClick,
   clothingItems,
   handleSignout,
-  openModal,
+  handleModalOpen,
   handleCardLike,
 }) {
   const handleEditProfile = () => {
-    openModal("edit");
+    handleModalOpen("edit-profile");
   };
 
   return (

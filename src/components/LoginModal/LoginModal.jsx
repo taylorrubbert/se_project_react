@@ -36,7 +36,7 @@ const LoginModal = ({
 
   return (
     <ModalWithForm
-      title="Log In"
+      titleText="Log In"
       buttonText="Log In"
       isOpen={isOpen}
       onClose={handleModalClose}
@@ -47,7 +47,6 @@ const LoginModal = ({
       error={error}
       name="login"
     >
-      <label className="modal__title">Log in</label>
       <button
         className="modal__close-btn"
         type="button"

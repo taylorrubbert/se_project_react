@@ -20,7 +20,7 @@ function ClothesSection({
 
   return (
     <div className="clothes-section">
-      <div>
+      <div className="clothes-section__header">
         <p className="clothes-section__title">Your Items</p>
         <button
           type="button"

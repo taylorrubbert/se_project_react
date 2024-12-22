@@ -40,17 +40,16 @@ const RegisterModal = ({
 
   return (
     <ModalWithForm
-      title="Sign Up"
+      titleText="Sign Up"
       buttonText="Sign Up"
       isOpen={isOpen}
-      handleModalCLose={handleModalCLose}
+      onClose={handleModalCLose}
       onSubmit={handleSubmit}
       buttonClass={`register-modal__register ${
         isButtonActive ? "register-modal__register_active" : ""
       }`}
       name="register"
     >
-      <label className="modal__title">Sign Up</label>
       <label htmlFor="register-email" className="modal__label">
         Email*
         <input
