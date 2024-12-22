@@ -7,7 +7,6 @@ const LoginModal = ({
   isOpen,
   onLogIn,
   handleRegisterModal,
-  buttonClass = "modal__submit",
   error = null,
 }) => {
   const [data, setData] = useState({ email: "", password: "" });
@@ -47,13 +46,14 @@ const LoginModal = ({
       error={error}
       name="login"
     >
+      <label className="modal__title">Log in</label>
       <button
         className="modal__close-btn"
         type="button"
         onClick={handleModalClose}
       />
       <label htmlFor="login-email" className="modal__label">
-        Email*
+        Email
         <input
           type="email"
           className="modal__input"
@@ -69,7 +69,7 @@ const LoginModal = ({
         />
       </label>
       <label htmlFor="login-password" className="modal__label">
-        Password*
+        Password
         <input
           type="password"
           className="modal__input"
@@ -84,7 +84,7 @@ const LoginModal = ({
           autoComplete="current-password"
         />
       </label>
-
+      {error && <div className="modal__error">{error}</div>}
       <div className="modal__btns">
         <button type="submit" className="modal__login">
           Log In
@@ -94,7 +94,7 @@ const LoginModal = ({
           className="modal__signup"
           onClick={handleRegisterModal}
         >
-          or Sign Up
+          or Register
         </button>
       </div>
     </ModalWithForm>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import "./header.css";
 import logo from "../../images/logo.svg";
-import avatar from "../../images/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import CurrentUserContext from "../../Contexts/CurrentUserContext";
 import { useContext } from "react";
@@ -26,7 +25,7 @@ function Header({
           <img className="header__logo" src={logo} alt="logo" />
         </Link>
 
-        <p className="header__current-date-and-location">
+        <p className="header__current-date">
           {currentDate}, {weatherData.city}
         </p>
       </div>
@@ -52,14 +51,12 @@ function Header({
                   className="header__user-avatar"
                 />
               ) : (
-                <div className="header__avatar-placeholder">
-                  {currentUser.name.charAt(0).toUpperCase()}
-                </div>
+                <div>{currentUser.name.charAt(0).toUpperCase()}</div>
               )}
             </div>
           </>
         ) : (
-          <div className="header__auth-buttons">
+          <div className="header__btns">
             <button
               onClick={handleRegisterModal}
               className="header__signup"
