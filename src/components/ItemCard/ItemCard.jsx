@@ -12,8 +12,8 @@ function ItemCard({ item, onCardClick, handleCardLike }) {
     handleCardLike({ id: item._id, isLiked });
   };
 
-  const itemLikeButtonClassName = `item__heart ${
-    isLiked ? "item__heart_liked" : ""
+  const itemLikeButtonClassName = `item__like ${
+    isLiked ? "item__like_active" : ""
   }`;
 
   return (

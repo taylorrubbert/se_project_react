@@ -61,7 +61,7 @@ function App() {
     const token = localStorage.getItem("jwt");
     addItem(newItem, token)
       .then((addedItem) => {
-        setClothingItems((prevItems) => [addedItem.data, ...prevItems]);
+        setClothingItems((prevItems) => [addedItem, ...prevItems]);
         handleModalClose();
       })
       .catch((err) => {

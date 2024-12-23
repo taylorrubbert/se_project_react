@@ -30,6 +30,7 @@
   background-color: rgba(255, 255, 255, 1);
   color: rgba(255, 77, 0, 1);
   margin-top: 40px;
+  cursor: pointer;
 }
 
 .modal__cancel-btn {
@@ -38,4 +39,5 @@
   color: rgba(0, 0, 0, 1);
   margin-top: 24px;
   margin-bottom: 60px;
+  cursor: pointer;
 }

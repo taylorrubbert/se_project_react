@@ -36,3 +36,15 @@
   margin-top: 15px;
   margin-left: 116px;
 }
+
+.item__like {
+  margin: 0;
+  position: absolute;
+  background-image: url("../../images/like.png");
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 15px;
+  padding: 2px 12px;
+  margin-top: 15px;
+  margin-left: 116px;
+}

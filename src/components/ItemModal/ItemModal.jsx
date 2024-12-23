@@ -1,7 +1,12 @@
 import { useContext } from "react";
-import CurrentUserContext from "../../contexts/CurrentUserContext";
+import CurrentUserContext from "../../Contexts/CurrentUserContext";
 import "./itemmodal.css";
-function ItemModal({ activeModal, onClose, card, confirmDeleteModal }) {
+function ItemModal({
+  activeModal,
+  handleModalClose,
+  card,
+  confirmDeleteModal,
+}) {
   const currentUser = useContext(CurrentUserContext);
   const isOwn = currentUser && currentUser?._id === card?.owner;
   return (
@@ -10,7 +15,7 @@ function ItemModal({ activeModal, onClose, card, confirmDeleteModal }) {
         <button
           className="modal__image_close-btn"
           type="button"
-          onClick={onClose}
+          onClick={handleModalClose}
         ></button>
         <img className="modal__image" src={card.imageUrl} alt={card.name} />
         <div className="modal__footer">
