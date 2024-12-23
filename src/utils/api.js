@@ -8,11 +8,12 @@ async function getItems() {
   return fetch(`${baseUrl}/items`).then(handleServerResponse);
 }
 
-async function addItem({ name, weather, imageUrl }) {
+async function addItem({ name, weather, imageUrl }, token) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       name,
@@ -22,11 +23,12 @@ async function addItem({ name, weather, imageUrl }) {
   }).then(handleServerResponse);
 }
 
-async function deleteItem(id) {
+async function deleteItem(id, token) {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
   }).then(handleServerResponse);
 }

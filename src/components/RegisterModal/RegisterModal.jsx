@@ -3,7 +3,7 @@ import "./RegisterModal.css";
 import { useState, useEffect } from "react";
 
 const RegisterModal = ({
-  handleModalCLose,
+  handleModalClose,
   openLoginModal,
   isOpen,
   onRegister,
@@ -43,7 +43,7 @@ const RegisterModal = ({
       titleText="Sign Up"
       buttonText="Sign Up"
       isOpen={isOpen}
-      onClose={handleModalCLose}
+      onClose={handleModalClose}
       onSubmit={handleSubmit}
       buttonClass={`register-modal__register ${
         isButtonActive ? "register-modal__register_active" : ""

@@ -233,6 +233,8 @@ function App() {
                       handleAddClick={handleAddClick}
                       handleCardLike={handleCardLike}
                       handleSignout={handleSignout}
+                      handleModalOpen={handleModalOpen}
+                      handleEditProfile={handleEditProfile}
                     />
                   </ProtectedRoute>
                 }
@@ -273,7 +275,8 @@ function App() {
           <EditProfileModal
             isOpen={activeModal === "edit"}
             handleModalClose={handleModalClose}
-            onEditProfileSubmit={handleEditProfile}
+            handleEditProfile={handleEditProfile}
+            handleModalOpen={handleModalOpen}
           />
         </CurrentTempUnitContext.Provider>
       </CurrentUserContext.Provider>

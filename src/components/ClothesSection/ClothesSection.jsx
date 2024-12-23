@@ -13,9 +13,7 @@ function ClothesSection({
   console.log("Current user ID:", currentUserId);
   console.log("All clothing items:", clothingItems);
 
-  const userItems = clothingItems.filter(
-    (item) => item.owner === currentUserId
-  );
+  const userItems = clothingItems.filter((item) => item.user === currentUserId);
   console.log("Filtered user items:", userItems);
 
   return (
