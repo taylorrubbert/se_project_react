@@ -273,7 +273,7 @@ function App() {
             onLogIn={handleLogin}
           />
           <EditProfileModal
-            isOpen={activeModal === "edit"}
+            isOpen={activeModal === "edit-profile"}
             handleModalClose={handleModalClose}
             handleEditProfile={handleEditProfile}
             handleModalOpen={handleModalOpen}

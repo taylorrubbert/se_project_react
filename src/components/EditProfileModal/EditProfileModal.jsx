@@ -3,11 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../Contexts/CurrentUserContext";
 import "../ModalWithForm/ModalWithForm.css";
 
-const EditProfileModal = ({
-  handleModalClose,
-  isOpen,
-  onEditProfileSubmit,
-}) => {
+const EditProfileModal = ({ handleModalClose, isOpen, handleEditProfile }) => {
   const currentUser = useContext(CurrentUserContext);
   const [name, setName] = useState("");
   const [avatar, setavatar] = useState("");
@@ -41,7 +37,7 @@ const EditProfileModal = ({
   function handleSubmit(e) {
     e.preventDefault();
     if (validateForm()) {
-      onEditProfileSubmit({ name, avatar });
+      handleEditProfile({ name, avatar });
     }
   }
 
@@ -65,10 +61,10 @@ const EditProfileModal = ({
 
   return (
     <ModalWithForm
-      title="Change Profile Data"
+      titleText="Change Profile Data"
       buttonText="Save Changes"
-      buttonClass={`modal__submit ${
-        isButtonActive ? "modal__submit_active" : ""
+      buttonClass={`modal__submit-btn ${
+        isButtonActive ? "modal__submit-btn_active" : ""
       }`}
       isOpen={isOpen}
       handleModalClose={handleModalClose}
@@ -103,8 +99,8 @@ const EditProfileModal = ({
       </label>
       <button
         type="submit"
-        className={`modal__submit ${
-          isButtonActive ? "modal__submit_active" : ""
+        className={`modal__submit-btn ${
+          isButtonActive ? "modal__submit-btn_active" : ""
         }`}
       >
         Save Changes
