@@ -1,6 +1,6 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import "./RegisterModal.css";
 import { useState, useEffect } from "react";
+import "./registermodal.css";
 
 const RegisterModal = ({
   handleModalClose,
