@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import CurrentUserContext from "../../Contexts/CurrentUserContext";
-import "../ModalWithForm/ModalWithForm.css";
-import "./loginmodal.css";
+import "../ModalWithForm/modalwithform.css";
+import "../LoginModal/loginmodal.css";
 
 const EditProfileModal = ({ handleModalClose, isOpen, handleEditProfile }) => {
   const currentUser = useContext(CurrentUserContext);
