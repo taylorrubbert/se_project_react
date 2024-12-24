@@ -123,7 +123,13 @@ function App() {
     const token = localStorage.getItem("jwt");
     editUserProfile(profileData, token)
       .then((updatedUser) => {
-        setCurrentUser(updatedUser);
+        console.log("updatedUser", updatedUser);
+        setCurrentUser((prevUserData) => ({
+          ...prevUserData,
+          name: updatedUser.name,
+          avatar: updatedUser.avatar,
+        }));
+
         handleModalClose();
       })
       .catch((err) => console.error("Edit profile error:", err));

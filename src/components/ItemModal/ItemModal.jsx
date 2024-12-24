@@ -22,18 +22,15 @@ function ItemModal({
           <div className="modal__caption-weather-container">
             <h2 className="modal__caption">{card.name}</h2>
             <p className="modal__weather">Weather: {card.weather}</p>
-            {isOwn && (
-              <button
-                className="modal__delete-btn"
-                onClick={confirmDeleteModal}
-              >
-                Delete item
-              </button>
-            )}
-            {!isOwn && (
-              <p className="modal__error">You Cannot Delete This Item</p>
-            )}
           </div>
+          {isOwn && (
+            <button className="modal__delete-btn" onClick={confirmDeleteModal}>
+              Delete item
+            </button>
+          )}
+          {!isOwn && (
+            <p className="modal__error">You Cannot Delete This Item</p>
+          )}
         </div>
       </div>
     </div>

@@ -50,6 +50,7 @@ const EditProfileModal = ({ handleModalClose, isOpen, handleEditProfile }) => {
     } else {
       setIsButtonActive(false);
     }
+    validateForm;
   }, [name, avatar]);
 
   useEffect(() => {
@@ -67,7 +68,7 @@ const EditProfileModal = ({ handleModalClose, isOpen, handleEditProfile }) => {
         isButtonActive ? "modal__submit-btn_active" : ""
       }`}
       isOpen={isOpen}
-      handleModalClose={handleModalClose}
+      onClose={handleModalClose}
       onSubmit={handleSubmit}
       name={"editprofile"}
     >

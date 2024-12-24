@@ -1,3 +1,15 @@
+.card {
+  position: relative;
+}
+
+.card__information {
+  position: absolute;
+  display: flex;
+  margin-top: 15px;
+  margin-left: 116px;
+  gap: 10px;
+}
+
 .cards__text {
   margin-top: 40px;
   margin-bottom: 34px;
@@ -27,28 +39,23 @@
 
 .card__name {
   margin: 0;
-  position: absolute;
+
   background-color: rgba(255, 255, 255, 1);
   color: rgba(0, 0, 0, 0.6);
   font-size: 16px;
   line-height: 20px;
   padding: 2px 12px;
-  margin-top: 15px;
-  margin-left: 116px;
 }
 
 .item__like {
   margin: 0;
-  position: absolute;
+
   background-image: url("../../images/like.png");
   background-repeat: no-repeat;
   background-color: transparent;
   border: none;
-  width: 18px;
+  width: 20px;
   height: 18px;
-  padding: 2px 12px;
-  margin-top: 15px;
-  margin-left: 190px;
 }
 
 .item__like_active {

@@ -15,11 +15,17 @@ function ItemCard({ item, onCardClick, handleCardLike }) {
   const itemLikeButton = `item__like ${isLiked ? "item__like_active" : ""}`;
 
   return (
-    <div>
-      <h2 className="card__name">{item.name}</h2>
-      {currentUser?._id && (
-        <button className={itemLikeButton} type="button" onClick={handleLike} />
-      )}
+    <div className="card">
+      <div className="card__information">
+        <h2 className="card__name">{item.name}</h2>
+        {currentUser?._id && (
+          <button
+            className={itemLikeButton}
+            type="button"
+            onClick={handleLike}
+          />
+        )}
+      </div>
       <img
         onClick={handleCardClick}
         className="card__image"
