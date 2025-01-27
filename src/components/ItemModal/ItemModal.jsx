@@ -29,7 +29,7 @@ function ItemModal({
             </button>
           )}
           {!isOwn && (
-            <p className="modal__error">You Cannot Delete This Item</p>
+            <p className="modal__error-item">You Cannot Delete This Item</p>
           )}
         </div>
       </div>
