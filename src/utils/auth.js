@@ -1,8 +1,7 @@
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "put the URL for your deployed backend here, including https://whattowear2025.jumpingcrab.com"
+    ? "https://whattowear2025.jumpingcrab.com"
     : "http://localhost:3001";
-
 // Helper function to handle fetch responses
 const handleResponse = (res) =>
   res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
