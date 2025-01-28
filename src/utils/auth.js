@@ -1,12 +1,12 @@
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://whattowear2025.jumpingcrab.com"
+    ? "https://api.whattowear2025.jumpingcrab.com"
     : "http://localhost:3001";
-// Helper function to handle fetch responses
+
 const handleResponse = (res) =>
   res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 
-// Register a new user
+// Register new user
 export const register = ({ name, avatar, email, password }) => {
   if (!name || !avatar || !email || !password) {
     return Promise.reject("Missing required fields");
@@ -22,7 +22,7 @@ export const register = ({ name, avatar, email, password }) => {
   }).then(handleResponse);
 };
 
-// Log in an existing user
+// Log in existing user
 export const logIn = ({ email, password }) => {
   return fetch(`${baseUrl}/signin`, {
     method: "POST",
@@ -33,7 +33,7 @@ export const logIn = ({ email, password }) => {
   }).then(handleResponse);
 };
 
-// Get the user's profile (JWT)
+// Get user's profile
 export const getUserProfile = (token) => {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",

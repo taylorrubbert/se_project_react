@@ -1,4 +1,3 @@
-//location API
 export const weatherOptions = [
   {
     day: true,
